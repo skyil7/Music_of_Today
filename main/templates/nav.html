@@ -1,9 +1,10 @@
 {% include 'default.html' %}
+{% load static %}
 <nav class="navbar navbar-expand-xl w-100 my-2 navbar-black">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/">Music of Today</a>
+    <a class="navbar-brand" href="#"><img src="{% static 'img/logo_T.png' %}" alt="Music of Today"></a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
