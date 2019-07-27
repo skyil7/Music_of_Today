@@ -1,7 +1,7 @@
 # Music of Today
 ![status](https://img.shields.io/badge/Status-On%20Development-yellowgreen.svg)
 ![platform](https://img.shields.io/badge/Platform-AWS-orange.svg)
-![version](https://img.shields.io/badge/Project%20Start%20Date-2019--07--24-informational.svg)
+![project_start_date](https://img.shields.io/badge/Project%20Start%20Date-2019--07--24-informational.svg)
 > Community web site to recommend Music of Today.
 
 ## 📖 Introduction
@@ -13,20 +13,22 @@
  
 ## 👩‍💻 System requirements
  기본적으로 개발 완료 후, AWS에 배포까지 해볼 계획이나, 로컬에서 실행해 보고자 하시면 Django를 활용한 빌드 후 실행하면 됩니다.
- 다만, settings.py 파일은 .gitignore에 포함해 놨기 때문에 직접 작성 후 사용하셔야 합니다.
+ 다만, settings.py 파일은 .gitignore에 포함해 놨기 때문에 github 용으로 따로 업로드 해둔 settings 파일의 이름을 바꿔 사용해주시면 되겠습니다.
  
 ### 👩‍💻 Dependency Build Instructions
  > 자세한 사용법은 개발 완료 후 작성할 예정입니다.
  ```
  pip install django==2.1.1
  pip install Pillow
+ pip install bs4
+ pip install requests
 ```
 
 ## 📝 Todo list 
 - [X] 💻 아마존 웹 서비스 배포용 환경 설정
-- [ ] 🔨 현재 날씨 크롤러 구현
-- [ ] 🔨 날씨, 시간 기반 가변 백그라운드 이미지 구현
-- [ ] 🔨 UI 디자인
+- [X] 💻 현재 날씨 크롤러 구현
+- [X] 💻 날씨, 시간 기반 가변 백그라운드 이미지 구현
+- [X] 💻 UI 디자인
 - [ ] 🔨 회원가입
 - [ ] 🔨 게시판
 - [ ] 🔒 태그 기능
@@ -38,8 +40,8 @@
 ## 📁 Development Plan
 ### Main
 > 사이트의 주요 기능을 포함하는 앱
-- [ ] Nav, Footer 를 포함한 공통 UI
-- [ ] 날씨 정보, 시간대 정보 기반 백그라운드 이미지 크롤러
+- [ ] 🔨 Nav, Footer 를 포함한 공통 UI
+- [X] 날씨 정보, 시간대 정보 기반 백그라운드 이미지 선택
 - [ ] 유튜브 뮤직 플레이어
 - [ ] 메인페이지 음악 선택기
 
@@ -48,6 +50,12 @@
 - [ ] 게시판 글 CRUD
 - [ ] 음악 첨부, 플레이어 연동 기능
 - [ ] 글 태그 기능
+
+## Update Note
+> 2019/07/28
+> <p>날씨 크롤러를 bs로 개발하였다. 일단 서울 날씨를 기반으로 하게 하였으나 추후 현위치 기반으로 업데이트하면 좋을 듯 하다.
+> <p>현재 크롤러가 매 접속 시점에 크롤링을 수행하는데, 성능 개선을 위해 이를 주기적으로 수행하도록 (periodic task) 개선할 예정이나 방법을 모르겠다..
+> <p>위의 크롤러 퍼포먼스 문제로 이미지를 매번 새로 찾는 것이 아닌 스태틱 이미지 중 적절한 것을 골라서 보여주는 것으로 대채하였다. 다만 나중엔 정말로 그때그때 새 이미지를 찾도록 해보고 싶다.
 
 ## Contact
 ```
