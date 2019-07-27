@@ -1,8 +1,65 @@
-.logo {
-    overflow: hidden;
-    max-height : 400px;
-    margin-top : 400px;
+.logoimg {
+    max-width: 230px; !important;
+    width: 100%;
+    height: auto; !important;
 }
 body {
     background-color: black;
+}
+.navbar {
+    max-height: 20%;
+    background-color: black;
+}
+.main-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 60%;
+}
+.img-dc{
+    background-image: url("/static/img/main/daytime/cloud/1.jpg");
+}
+.img-dr{
+    background-image: url("/static/img/main/daytime/rain/1.jpg");
+}
+.img-ds{
+    background-image: url("/static/img/main/daytime/snow/1.jpg");
+}
+.img-dsu{
+    background-image: url("/static/img/main/daytime/sunny/1.jpg");
+}
+.img-nc{
+    background-image: url("/static/img/main/night/cloud/1.jpg");
+}
+.img-nr{
+    background-image: url("/static/img/main/night/rain/1.jpg");
+}
+.img-ns{
+    background-image: url("/static/img/main/night/snow/1.jpg");
+}
+.img-nsu{
+    background-image: url("/static/img/main/night/sunny/1.jpg");
+}
+.img-mc{
+    background-image: url("/static/img/main/morning/cloud/1.jpg");
+}
+.img-mr{
+    background-image: url("/static/img/main/morning/rain/1.jpg");
+}
+.img-ms{
+    background-image: url("/static/img/main/morning/snow/1.jpg");
+}
+.img-msu{
+    background-image: url("/static/img/main/morning/sunny/1.jpg");
+}
+.img-sc{
+    background-image: url("/static/img/main/sunset/cloud/1.jpg");
+}
+.img-sr{
+    background-image: url("/static/img/main/sunset/rain/1.jpg");
+}
+.img-ss{
+    background-image: url("/static/img/main/sunset/snow/1.jpg");
+}
+.img-ssu{
+    background-image: url("/static/img/main/sunset/sunny/1.jpg");
 }

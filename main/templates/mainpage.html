@@ -5,7 +5,48 @@
     <title>Music of Today</title>
     {% load static %}
 </head>
-<body class="w-100">
-    {% include 'nav.html' %}
+{% include 'nav.html' %}
+{% if time == 'night' %}
+    {% if weather == '흐림' %}
+        <body class="w-100 main-img img-nc">
+    {% elif weather == '비' %}
+        <body class="w-100 main-img img-nr">
+    {% elif weather == '눈' %}
+        <body class="w-100 main-img img-ns">
+    {% else %}
+        <body class="w-100 main-img img-nsu">
+    {% endif %}
+{% elif time == 'morning' %}
+    {% if weather == '흐림' %}
+        <body class="w-100 main-img img-mc">
+    {% elif weather == '비' %}
+        <body class="w-100 main-img img-mr">
+    {% elif weather == '눈' %}
+        <body class="w-100 main-img img-ms">
+    {% else %}
+        <body class="w-100 main-img img-msu">
+    {% endif %}
+{% elif time == 'sunset' %}
+    {% if weather == '흐림' %}
+        <body class="w-100 main-img img-sc">
+    {% elif weather == '비' %}
+        <body class="w-100 main-img img-sr">
+    {% elif weather == '눈' %}
+        <body class="w-100 main-img img-ss">
+    {% else %}
+        <body class="w-100 main-img img-ssu">
+    {% endif %}
+{% else %}
+    {% if weather == '흐림' %}
+        <body class="w-100 main-img img-dc">
+    {% elif weather == '비' %}
+        <body class="w-100 main-img img-dr">
+    {% elif weather == '눈' %}
+        <body class="w-100 main-img img-ds">
+    {% else %}
+        <body class="w-100 main-img img-dsu">
+    {% endif %}
+{% endif %}
+{% include 'player.html' %}
 </body>
 </html>
