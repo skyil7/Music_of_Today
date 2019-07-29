@@ -16,4 +16,7 @@ def home(request):
         time='sunset'
     else:
         time='night'
+
+    request.session['time'] = time
+    request.session['weather'] = weather
     return render(request, 'mainpage.html', {"weather":weather, 'time':time})

@@ -1,7 +1,48 @@
 {% load static %}
 {% include 'default.html' %}
+{% if request.session.time == 'night' %}
+    {% if request.session.weather == '흐림' %}
+        <body class="w-100 img-nc">
+    {% elif request.session.weather == '비' %}
+        <body class="w-100 img-nr">
+    {% elif request.session.weather == '눈' %}
+        <body class="w-100 img-ns">
+    {% else %}
+        <body class="w-100 img-nsu">
+    {% endif %}
+{% elif request.session.time == 'morning' %}
+    {% if request.session.weather == '흐림' %}
+        <body class="w-100 img-mc">
+    {% elif request.session.weather == '비' %}
+        <body class="w-100 img-mr">
+    {% elif request.session.weather == '눈' %}
+        <body class="w-100 img-ms">
+    {% else %}
+        <body class="w-100 img-msu">
+    {% endif %}
+{% elif request.session.time == 'sunset' %}
+    {% if request.session.weather == '흐림' %}
+        <body class="w-100 img-sc">
+    {% elif request.session.weather == '비' %}
+        <body class="w-100 img-sr">
+    {% elif request.session.weather == '눈' %}
+        <body class="w-100 img-ss">
+    {% else %}
+        <body class="w-100 img-ssu">
+    {% endif %}
+{% else %}
+    {% if request.session.weather == '흐림' %}
+        <body class="w-100 img-dc">
+    {% elif request.session.weather == '비' %}
+        <body class="w-100 img-dr">
+    {% elif request.session.weather == '눈' %}
+        <body class="w-100 img-ds">
+    {% else %}
+        <body class="w-100 img-dsu">
+    {% endif %}
+{% endif %}
 <nav class="navbar navbar-expand-xl w-100 py-2 navbar-dark">
-    <a class="navbar-brand" href="#"><img class="logoimg" src="{% static 'img/logo.png' %}" alt="Music of Today"></a>
+    <a class="navbar-brand" href="/"><img class="logoimg" src="{% static 'img/logo.png' %}" alt="Music of Today"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="color: white;"></span>
     </button>
@@ -17,12 +58,21 @@
                     서비스 소개
                 </a>
             </li>
+            {% if user.is_authenticated %}
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{% url 'logout' %}">
+                    로그아웃
+                </a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">
                     로그인
                 </a>
             </li>
+            {% endif %}
         </ul>
     </div>
 </nav>
 <hr class="my-0" color="gray">
+{% include 'player.html' %}

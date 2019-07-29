@@ -1,10 +1,3 @@
-.blur {
-    -webkit-filter: blur(3px);
-	-moz-filter: blur(3px);
-	-o-filter: blur(3px);
-	-ms-filter: blur(3px);
-	filter: blur(3px);
-}
 .logoimg {
     max-width: 230px; !important;
     width: 100%;
@@ -12,13 +5,15 @@
 }
 body {
     background-color: black;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 60%;
 }
 .navbar {
     max-height: 20%;
     background-color: black;
+}
+.main-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 60%;
 }
 .img-dc{
     background-image: url("/static/img/main/daytime/cloud/1.jpg");

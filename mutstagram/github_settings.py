@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -109,3 +110,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'main', 'static'),
+]
+#Static 파일의 현위치
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#Static 파일들이 모이는 곳
+
+#Session Expire Setting
+SESSION_COOKIE_AGE = 1200 #20min
+SESSION_SAVE_EVERY_REQUEST = True
