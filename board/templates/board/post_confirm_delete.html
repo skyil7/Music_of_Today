@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>글 삭제</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+{% include 'nav.html' %}
+    <div class="container">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card">
+                <div class="card-header">
+                    <h3>"{{object.title}}" 글을 정말로 삭제하시겠어요?</h3>
+                </div>
+                <form method="POST">{% csrf_token %}
+                <input type="submit" class="btn btn-danger" value="삭제하기"> </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

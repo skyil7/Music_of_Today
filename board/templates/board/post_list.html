@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>글 목록</title>
+</head>
+{% include 'nav.html' %}
+    <div class="container px-0">
+        <div class="d-flex justify-content-center h-100">
+            <div class="content_box px-5 py-3">
+                <h2 style="color: white;">게시판</h2>
+                {% if object_list %}
+                <table class="table table-hover table-striped bg-white">
+                    <thead>
+                    <tr>
+                        <th style="width: 7%;">번호</th>
+                        <th style="width: 56%;">제목</th>
+                        <th style="width: 15%">글쓴이</th>
+                        <th style="width: 15%;">작성일</th>
+                        <th style="width: 7%;">추천</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for post in object_list %}
+                    <tr onclick="location.href='read/{{post.id}}'">
+                        <td>{{ post.id }}</td>
+                        <td style="text-align: left">{{ post.title }}</td>
+                        <td>{{ post.writer }}</td>
+                        <td>{{ post.createdDate }}</td>
+                        <td>{{ post.likeCnt }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p>글이 없습니다.</p>
+                {% endif %}
+                <a class="btn btn-default pull-right btn-light" href="{% url 'create' %}">글쓰기</a>
+                {% if is_paginated %}
+                    <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><span>&laquo;</span></li>
+                        {% endif %}
+                        {% for i in paginator.page_range %}
+                            {% if page_obj.number == i %}
+                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                            {% else %}
+                                <li><a href="?page={{ i }}">{{ i }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                        {% else %}
+                            <li class="disabled"><span>&raquo;</span></li>
+                        {% endif %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
