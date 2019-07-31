@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{object.title}}</title>
+    {% load hashtag %}
 </head>
 {% include 'nav.html' %}
 <div class="container px-0">
@@ -14,7 +15,7 @@
                     <span><a>{{object.writer}}</a> | {{object.date}} | 추천 : {{object.likesCnt}}</span>
                     <hr>
                     <p>
-                        {{object.content}}
+                        {{object|add_link|safe}}
                     </p>
                     <hr>
                     <button class="btn btn-warning"><a style="color: white;" href="{% url 'update' object.id %}"> 수정하기</a></button>

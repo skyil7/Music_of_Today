@@ -1,20 +1,31 @@
-.blur {
-    -webkit-filter: blur(3px);
-	-moz-filter: blur(3px);
-	-o-filter: blur(3px);
-	-ms-filter: blur(3px);
-	filter: blur(3px);
-}
 .logoimg {
     max-width: 230px; !important;
     width: 100%;
     height: auto; !important;
+}
+.container{
+    height: 89%;
+}
+.content_box{
+    height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6) !important;
+}
+.content_box table *{
+    color: black;
+    text-align: center;
+}
+.form-box{
+    background-color: white;
 }
 body {
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 60%;
+    height: 100vh;
 }
 .navbar {
     max-height: 20%;

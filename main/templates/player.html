@@ -1,0 +1,57 @@
+<footer class="footer mt-auto pt-3 pb-0 bg-black">
+    <div class="container">
+        <span onclick="leftClick()"><i class="fas fa-chevron-circle-left player-btn"></i></span>
+        <span onclick="centerClick()"><i class="far fa-pause-circle player-btn" id="centerBtn" status="pause"></i></span>
+        <span onclick="rightClick()"><i class="fas fa-chevron-circle-right player-btn"></i></span>
+        <br><span style="color: white;" id="title">빈첸-전혀</span>
+        <div style="position:relative;width:300px;height:25px;overflow:hidden;">
+        <div style="position:absolute;top:-300px;left:-5px">
+            <div id="player"></div>
+        </div>
+        </div>
+    </div>
+</footer>
+<script>
+    var centerBtn = document.getElementById('centerBtn')
+    var title=document.getElementById('title')
+    var videoId = 'TKAGKFBh4W8';
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function leftClick(){
+        player.previousVideo();
+        getTitle();
+    }
+    function rightClick() {
+        player.nextVideo();
+        getTitle();
+    }
+    function centerClick() {
+        if (centerBtn.getAttribute('status')=='pause'){
+            player.pauseVideo();
+            centerBtn.setAttribute('status', 'play');
+            centerBtn.class = "far fa-play-circle player-btn";
+        }else{
+            player.playVideo();
+            centerBtn.class = "far fa-pause-circle player-btn"
+            centerBtn.setAttribute('status', 'pause');
+        }
+    }
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        height: '300',
+        width: '300',
+        videoId: videoId,
+        events: {
+          'onReady': onPlayerReady,
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+</script>

@@ -1,3 +1,14 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+}
+.player-btn{
+    color: white; !important;
+    font-size: 3em;
+}
 .logoimg {
     max-width: 230px; !important;
     width: 100%;

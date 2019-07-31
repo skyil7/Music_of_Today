@@ -1,3 +1,4 @@
+from django.conf.urls import url
 from django.urls import path
 from . import views
 
@@ -7,4 +8,5 @@ urlpatterns = [
     path('read/<int:pk>', views.PostRead.as_view(), name='read'),
     path('update/<int:pk>', views.PostUpdate.as_view(), name='update'),
     path('delete/<int:pk>', views.PostDelete.as_view(), name='delete'),
+    url(r'^tag/(?P<tag>\w+)/$', views.tagedList, name='tagList'),
 ]
